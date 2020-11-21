@@ -6,11 +6,15 @@ import os
 import sys
 import re
 import shutil
+import json
 
 # 多语言设置
-file_lists = os.listdir('.')
-if 'mop.db' in file_lists:
-    mop_db = shelve.open('mop')
+file_lists = os.listdir(os.path.expanduser('~'))
+if 'mop.json' in file_lists:
+    file = open(os.path.expanduser('~/mop.json'), 'r')
+    mop_db_path = json.load(file)
+    file.close()
+    mop_db = shelve.open(mop_db_path + 'mop')
     if mop_db['language'] == 'en':
         rename_help = 'Input source folder and converted file(Starting number optional)'
         r_num_1 = 'Putting the folder'
