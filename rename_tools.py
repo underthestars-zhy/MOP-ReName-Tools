@@ -67,6 +67,6 @@ if args.r_num and len(args.r_num) >= 2:
         file_name, file_suffix = file_re.groups()
         new_file = str(i) + "." + file_suffix
         shutil.move(from_dir + "/" + file, to_dir + "/" + new_file)
-        print(from_dir + file + r_num_txt + to_dir + new_file)
+        print(from_dir + file + r_num_txt + to_dir + "/" + new_file)
         i += 1
     print('OK')
